@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <title>D3 Practicing</title>
+</head>
+<body>
+
+    <script>
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", 250)
+            .attr("height", 250);
+
+        function render(data) {
+
+            //Bind data
+            var circles = svg.selectAll("circle").data(data);
+
+            //Enter elements
+            circles.enter().append("cirlce")
+                    .attr("r", 10);
+
+            //Update elements
+            circles
+                .attr("cx", function (d) { return d.x; })
+                .attr("cy", function (d) { return d.y; });
+
+            //Exit
+            circles.exit().remove(); // only triggers if render() is called with less params
+        }
+
+        function type(d) {
+            d.x = +d.x;
+            d.y = +d.y;
+            return d;
+        }
+
+        d3.csv("data.csv", type, render);
+
+    </script>
+</body>
+</html>
