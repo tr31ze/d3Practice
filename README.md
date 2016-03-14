@@ -12,4 +12,4 @@ https://www.dropbox.com/s/iiu3tuhj3hrqv9w/sampledata.rar?dl=0
 -------------------------------------------------------------
 Then run this command in the home folder to install the dependencies :  npm  install
 
-And thats it, now just open the index.html file from the public folder. 
+And thats it, now just run 'npm start' and open the index.html file from the public folder. 
